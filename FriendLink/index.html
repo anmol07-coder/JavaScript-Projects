@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FriendLink</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- Form Section -->
+        <div class="form-container">
+
+            <h1>Add User</h1>
+
+            <form id="user-form">
+
+                <div class="input-group">
+                    <label for="name">Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter user name"
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="role">Role</label>
+                    <input
+                        type="text"
+                        id="role"
+                        placeholder="Enter role"
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="bio">Bio</label>
+                    <textarea
+                        id="bio"
+                        placeholder="Write a short bio..."
+                    ></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="photo">Photo URL</label>
+                    <input
+                        type="text"
+                        id="photo"
+                        placeholder="Paste image URL"
+                    >
+                </div>
+
+                <button type="submit" id="btn">
+                    Add User
+                </button>
+
+            </form>
+
+        </div>
+
+        <!-- Search Bar -->
+
+        <div class="search-container">
+
+            <input
+                type="text"
+                id="search"
+                placeholder="🔍 Search users by name..."
+            >
+
+        </div>
+
+        <!-- User Cards Container -->
+
+        <div class="cards-container">
+
+            <!-- Card 1 -->
+
+            <div class="card">
+
+                <div class="img-wrapper">
+                    <img
+                        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500"
+                        alt="User"
+                    >
+                </div>
+
+                <h2>John Doe</h2>
+
+                <h4>Frontend Developer</h4>
+
+                <p>
+                    Loves building beautiful UIs and learning
+                    modern web technologies.
+                </p>
+
+                <div class="btn-group">
+
+                    <button class="friend-btn">
+                        Remove Friend
+                    </button>
+
+                    <button class="profile-btn">
+                        View Profile
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
