@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card Creator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="form-container">
+
+            <h1>Profile Card Creator</h1>
+
+            <form id="user-form">
+
+                <div class="input-group">
+                    <label>Name</label>
+                    <input type="text" id="name" placeholder="Enter your name">
+                </div>
+
+                <div class="input-group">
+                    <label>Profession</label>
+                    <input type="text" id="profession" placeholder="Enter profession">
+                </div>
+
+                <div class="input-group">
+                    <label>Bio</label>
+                    <textarea id="bio" placeholder="Write something about yourself"></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label>Profile Picture URL</label>
+                    <input type="text" id="photo" placeholder="Paste image URL">
+                </div>
+
+                <button type="submit" id="submit-btn">
+                    Create Card
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="cards-container"></div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
