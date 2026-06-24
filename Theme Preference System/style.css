@@ -1,0 +1,110 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    transition:0.4s ease;
+
+    background:#f8fafc;
+    color:#0f172a;
+}
+
+.container{
+    width:600px;
+}
+
+.card{
+    padding:40px;
+
+    border-radius:24px;
+
+    text-align:center;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.15);
+
+    transition:0.4s ease;
+}
+
+.card h1{
+    margin-bottom:20px;
+}
+
+.card p{
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+#theme-btn{
+    border:none;
+
+    padding:15px 30px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:16px;
+    font-weight:600;
+
+    background:
+    linear-gradient(
+        135deg,
+        #3b82f6,
+        #8b5cf6
+    );
+
+    color:white;
+
+    transition:.3s;
+}
+
+#theme-btn:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 10px 20px rgba(59,130,246,.4);
+}
+
+/* DARK THEME */
+
+body.dark{
+    background:#0f172a;
+    color:white;
+}
+
+body.dark .card{
+    background:
+    rgba(255,255,255,0.08);
+
+    border:
+    1px solid rgba(255,255,255,0.1);
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.35);
+}
+
+/* LIGHT THEME */
+
+body.light{
+    background:#f8fafc;
+    color:#0f172a;
+}
+
+body.light .card{
+    background:white;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.15);
+}

@@ -318,9 +318,12 @@
 // let ex = document.getElementsByClassName("tag-checkbox");
 // console.dir(ex[0]);
 
-let name = document.querySelector("#name");
+// let name = document.querySelector("#name");
 
-name.addEventListener("change" , function(e){
-    console.log(e.target.value);
+// name.addEventListener("change" , function(e){
+//     console.log(e.target.value);
     
-})
+// })
+
+document.cookie = "name = Anmol";
+console.log(document.cookie);
