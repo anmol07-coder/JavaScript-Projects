@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Form Validator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h1>Login Validator</h1>
+
+            <form id="form">
+
+                <div class="input-group">
+
+                    <label>Email</label>
+
+                    <input
+                        type="text"
+                        id="email"
+                        autocomplete="off"
+                        placeholder="Enter your email"
+                    >
+
+                    <small id="email-error"></small>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Password</label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter password"
+                    >
+
+                    <small id="password-error"></small>
+
+                </div>
+
+                <button type="submit" id="submit-btn">
+                    Validate
+                </button>
+
+            </form>
+
+            <div id="success-message"></div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
