@@ -1,0 +1,45 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0f172a,
+        #1e293b
+    );
+
+    padding-top:50px;
+}
+
+.alert-banner{
+
+    background:#22c55e;
+
+    color:white;
+
+    padding:18px 30px;
+
+    border-radius:12px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.3);
+
+    transition:
+    opacity .5s ease,
+    transform .5s ease;
+}
