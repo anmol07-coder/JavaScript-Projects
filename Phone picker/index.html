@@ -3,47 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Phone Selector</title>
+    <title>Phone Picker</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
 
-        <h1 id="heading">
-            Select A Mobile Phone
-        </h1>
+        <h1 id="heading">Select a Phone</h1>
 
         <select id="phone-select">
-
-            <option value="" selected disabled>
-                -- Select Phone --
-            </option>
-
-            <option value="iPhone 16 Pro">
-                iPhone 16 Pro
-            </option>
-
-            <option value="Samsung S25 Ultra">
-                Samsung S25 Ultra
-            </option>
-
-            <option value="OnePlus 13">
-                OnePlus 13
-            </option>
-
-            <option value="Google Pixel 9">
-                Google Pixel 9
-            </option>
-
-            <option value="Nothing Phone 3">
-                Nothing Phone 3
-            </option>
-
+            <option value="" selected disabled>Choose a Phone</option>
+            <option value="iPhone 16 Pro">iPhone 16 Pro</option>
+            <option value="Samsung S25 Ultra">Samsung S25 Ultra</option>
+            <option value="OnePlus 13">OnePlus 13</option>
+            <option value="iPhone 15">iPhone 15</option>
+            <option value="Samsung Galaxy Z Fold 6">Samsung Galaxy Z Fold 6</option>
+            <option value="Nothing Phone 3">Nothing Phone 3</option>
+            <option value="Xiaomi 15 Ultra">Xiaomi 15 Ultra</option>
+            <option value="Vivo X200 Pro">Vivo X200 Pro</option>
+            <option value="Realme GT 7 Pro">Realme GT 7 Pro</option>
         </select>
 
-    </div>
+        <!-- This is how we have to dynamically add the card through javascript that shows mobile phone image and specific details  -->
 
+        <!-- <div class="phone-card">
+
+            <img
+                id="phone-image"
+                src="https://via.placeholder.com/300x250?text=Select+A+Phone"
+                alt="Phone Image"
+            >
+
+            <h2 id="phone-price">Price: ₹0</h2>
+
+            <ul id="phone-specs">
+                <li>Select a phone to view specifications.</li>
+            </ul>
+
+            <button id="buy-btn">Buy Now</button>
+
+        </div> -->
+
+    </div>
     <script src="script.js"></script>
 
 </body>

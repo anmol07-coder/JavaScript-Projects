@@ -10,59 +10,342 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    overflow-y:auto;
+    overflow-x:hidden;
+    position:relative;
+}
 
-    background:linear-gradient(
-        135deg,
-        #0f172a,
-        #1e293b
-    );
+/* Animated Background Glow */
+
+body::before,
+body::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    filter:blur(80px);
+    z-index:-1;
+}
+
+body::before{
+    width:250px;
+    height:250px;
+    background:#3b82f6;
+    top:10%;
+    left:10%;
+
+    animation:floatGlow1 8s ease-in-out infinite;
+}
+
+body::after{
+    width:250px;
+    height:250px;
+    background:#8b5cf6;
+    bottom:10%;
+    right:10%;
+
+    animation:floatGlow2 10s ease-in-out infinite;
 }
 
 .container{
-    width:400px;
-    text-align:center;
+    width:500px;
+    padding:30px;
+    border-radius:25px;
+    position:relative;
+    overflow:hidden;
 
-    background:white;
+    backdrop-filter:blur(20px);
 
-    padding:40px;
+    background:rgba(55,55,55,0.88);
 
-    border-radius:20px;
+    border:1px solid rgba(255,255,255,.1);
 
     box-shadow:
-    0 15px 35px rgba(0,0,0,.3);
+    0 10px 40px rgba(0,0,0,.3),
+    0 0 30px rgba(59,130,246,.25);
+
+    text-align:center;
+
+    animation:
+    fadeIn .8s ease,
+    floatCard 5s ease-in-out infinite;
+
+    transition:.4s;
 }
 
-h1{
-    margin-bottom:25px;
-
-    color:#1e293b;
-
-    font-size:28px;
+.container:hover{
+    box-shadow:
+    0 15px 50px rgba(0,0,0,.4),
+    0 0 40px rgba(59,130,246,.45);
 }
 
-select{
+.container::before{
+    content:"PHONE";
+    position:absolute;
+
+    font-size:7rem;
+    font-weight:900;
+
+    color:rgba(255,255,255,.03);
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    pointer-events:none;
+}
+
+/* Heading */
+
+#heading{
+    color:white;
+    font-size:2.2rem;
+    margin-bottom:20px;
+
+    text-shadow:
+    0 0 10px rgba(255,255,255,.15),
+    0 0 20px rgba(59,130,246,.3);
+
+    transition:.4s;
+}
+
+/* Select */
+
+#phone-select{
     width:100%;
+    padding:14px;
 
-    padding:15px;
-
-    font-size:18px;
-
-    border:2px solid #3b82f6;
-
+    border:none;
     border-radius:12px;
 
-    outline:none;
+    background:rgba(255,255,255,.1);
 
+    color:white;
+    font-size:1rem;
+
+    outline:none;
     cursor:pointer;
+
+    margin-bottom:25px;
 
     transition:.3s;
 }
 
-select:hover{
-    transform:translateY(-2px);
+#phone-select:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 0 20px rgba(59,130,246,.35);
 }
 
-select:focus{
+#phone-select:focus{
     box-shadow:
-    0 0 15px rgba(59,130,246,.4);
+    0 0 30px rgba(59,130,246,.6);
+}
+
+#phone-select option{
+    color:black;
+}
+
+/* Card */
+
+.phone-card{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:18px;
+
+    animation:cardAppear .5s ease;
+}
+
+/* Image */
+
+.phone-image{
+    width:280px;
+    height:280px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    transition:.5s;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.35);
+}
+
+.phone-image:hover{
+    transform:
+    scale(1.05)
+    rotate(-2deg);
+
+    box-shadow:
+    0 15px 35px rgba(59,130,246,.4);
+}
+
+/* Price */
+
+.phone-card h2{
+    color:#60a5fa;
+
+    font-size:1.7rem;
+    font-weight:700;
+
+    animation:pulsePrice 2s infinite;
+}
+
+/* Specs */
+
+.phone-card ul{
+    list-style:none;
+    width:100%;
+    text-align:left;
+}
+
+.phone-card li{
+    color:#e2e8f0;
+
+    margin:10px 0;
+    padding:12px;
+
+    border-radius:10px;
+
+    background:rgba(255,255,255,.08);
+
+    transform:translateX(-20px);
+    opacity:0;
+
+    animation:slideIn .5s forwards;
+}
+
+.phone-card li:nth-child(1){
+    animation-delay:.1s;
+}
+
+.phone-card li:nth-child(2){
+    animation-delay:.2s;
+}
+
+.phone-card li:nth-child(3){
+    animation-delay:.3s;
+}
+
+.phone-card li:nth-child(4){
+    animation-delay:.4s;
+}
+
+.phone-card li:nth-child(5){
+    animation-delay:.5s;
+}
+
+/* Buy Button */
+
+#buy-btn{
+    display:none;
+
+    border:none;
+
+    padding:14px 40px;
+
+    border-radius:50px;
+
+    font-size:1rem;
+    font-weight:600;
+
+    color:white;
+
+    background:linear-gradient(
+        135deg,
+        #3b82f6,
+        #8b5cf6
+    );
+
+    cursor:pointer;
+
+    transition:.4s;
+
+    box-shadow:
+    0 0 20px rgba(59,130,246,.5);
+}
+
+#buy-btn:hover{
+    transform:
+    translateY(-4px)
+    scale(1.05);
+
+    box-shadow:
+    0 0 35px rgba(59,130,246,.8);
+}
+
+/* Animations */
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes slideIn{
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+@keyframes cardAppear{
+    from{
+        opacity:0;
+        transform:scale(.8);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+@keyframes pulsePrice{
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.05);
+    }
+}
+
+@keyframes floatCard{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+@keyframes floatGlow1{
+    0%,100%{
+        transform:translate(0,0);
+    }
+
+    50%{
+        transform:translate(50px,-50px);
+    }
+}
+
+@keyframes floatGlow2{
+    0%,100%{
+        transform:translate(0,0);
+    }
+
+    50%{
+        transform:translate(-50px,50px);
+    }
 }
