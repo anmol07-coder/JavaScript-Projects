@@ -1,24 +1,45 @@
 let download = document.querySelector("#download-btn");
-let barDiv = document.querySelector("#progress-bar");
-let percentageCount = document.querySelector("#percentage");
-let count;
-let duration = 10;
+let percentage = document.querySelector("#percentage");
+let downloadStatus = document.querySelector("#status");
+let progressBar = document.querySelector("#progress-fill");
+let count = 0;
+let duration = 5;
 
-download.addEventListener("click",function(){
-    count = 0;
-    download.disabled = true;
-    let interval = setInterval(function(){
-        if(count <= 99){
-            count++;
-            barDiv.style.width = `${count}%`;
-            percentageCount.textContent = `${count}%`;
-            download.textContent = "Downloading";
-        }
+download.addEventListener("click" , function(){
+    download.setAttribute("disabled", "true");
+    downloadStatus.textContent = "Downloading";
+       
+        let interval = setInterval(function(){
+            if(count <= 99){
+                count++;
+                percentage.textContent = `${count}%`;
+                progressBar.style.width = `${count}%`;
 
-        else{
-            download.disabled = false;
-            clearInterval(interval);
-            download.textContent = "Downloaded";
-        }
-    },(duration*1000)/100);
+                if(count <= 40){
+                    progressBar.style.background = " #ef4444";
+                }
+
+                else if(count<=60){
+                    progressBar.style.background = "#f97316";
+                }
+
+                else if(count<=80){
+                    progressBar.style.background = "#eab308";
+                }
+
+                else{
+                    progressBar.style.background = "#22c55e";
+                }
+            }
+           
+
+
+            else{
+                clearInterval(interval);
+                downloadStatus.textContent = "Download Complete ✅";
+                count=0;
+            }
+            
+        },(duration*1000)/100);
+    
 })
