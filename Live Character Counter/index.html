@@ -1,36 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>Live Character Counter</title>
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="style.css">
+
 </head>
+
 <body>
+
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
 
     <div class="container">
 
-        <h1>Live Character Counter</h1>
+        <h1>✍️ Live Character Counter</h1>
 
-        <div class="card">
+        <p class="subtitle">
+            Start typing and watch the counter update instantly.
+        </p>
 
-            <textarea
-                id="textarea"
-                placeholder="Start typing here..."
-                maxlength="200"
-            ></textarea>
+        <textarea
+            id="message"
+            placeholder="Write something amazing..."
+            maxlength="250"></textarea>
 
-            <div class="counter-box">
+        <!-- Progress Bar -->
 
-                <div class="counter">
-                    Characters:
-                    <span id="char-count">0</span>
-                </div>
+        <div class="progress">
 
-                <div class="counter">
-                    Remaining:
-                    <span id="remaining-count">200</span>
-                </div>
+            <div class="progress-bar"
+                 id="progress-bar"></div>
+
+        </div>
+
+        <!-- Counter Boxes -->
+
+        <div class="stats">
+
+            <div class="box">
+
+                <h2 id="total">0</h2>
+
+                <span>Total Characters</span>
+
+            </div>
+
+            <div class="box">
+
+                <h2 id="remaining">250</h2>
+
+                <span>Remaining Characters</span>
 
             </div>
 
@@ -41,4 +69,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>

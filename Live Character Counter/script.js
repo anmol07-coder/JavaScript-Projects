@@ -1,19 +1,31 @@
-let input = document.querySelector("#textarea");
-let charactersCount = document.querySelector("#char-count");
-let remainingCount = document.querySelector("#remaining-count");
+let input = document.querySelector("#message");
+let total = document.querySelector("#total");
+let remaining = document.querySelector("#remaining");
+let progressBar = document.querySelector("#progress-bar");
 
-input.addEventListener("input" , function(){
-    charactersCount.textContent = input.value.length;
-    remainingCount.textContent = 200 - input.value.length;
-    
-    if(200 - input.value.length <= 20){
-        remainingCount.style.color = "red";
+input.addEventListener("input" , function(e){
+    let characterCount = input.value.length;
+    let remainigCharacters = 250 - input.value.length;
+
+    total.textContent  = characterCount;
+    remaining.textContent = remainigCharacters;
+
+    let percentage = (characterCount/250)*100;
+    progressBar.style.width = percentage+"%";
+
+    if(percentage <=40){
+        progressBar.style.background = "blue";
     }
-    else if(200 - input.value.length === 200){
-        remainingCount.style.color = "#60A5FA";
+
+    else if(percentage <= 70){
+        progressBar.style.background = "yellow";
+    }
+
+    else if(percentage <= 90){
+        progressBar.style.background = "orange";
     }
 
     else{
-        remainingCount.style.color = "green";
+        progressBar.style.background = "red";
     }
 })
