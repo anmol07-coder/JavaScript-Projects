@@ -1,63 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Form Validator</title>
-    <link rel="stylesheet" href="style.css">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Email & Password Validator</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
 </head>
+
 <body>
+
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
 
     <div class="container">
 
-        <div class="card">
+        <h1>Email & Password Validator</h1>
 
-            <h1>Login Validator</h1>
+        <p class="subtitle">
+            Validate user credentials in real time.
+        </p>
 
-            <form id="form">
+        <form id="validator-form">
 
-                <div class="input-group">
+            <div class="input-group">
 
-                    <label>Email</label>
+                <label>Email Address</label>
 
-                    <input
-                        type="text"
-                        id="email"
-                        autocomplete="off"
-                        placeholder="Enter your email"
-                    >
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email">
 
-                    <small id="email-error"></small>
+                <small id="email-message"></small>
 
-                </div>
+            </div>
 
-                <div class="input-group">
+            <div class="input-group">
 
-                    <label>Password</label>
+                <label>Password</label>
+
+                <div class="password-box">
 
                     <input
                         type="password"
                         id="password"
-                        placeholder="Enter password"
-                    >
+                        placeholder="Enter password">
 
-                    <small id="password-error"></small>
+                    <button
+                        type="button"
+                        id="toggle-password">
+                        👁
+                    </button>
 
                 </div>
 
-                <button type="submit" id="submit-btn">
-                    Validate
-                </button>
+                <small id="password-message"></small>
 
-            </form>
+            </div>
 
-            <div id="success-message"></div>
+            <div class="strength">
 
-        </div>
+                <div class="strength-fill"
+                     id="strength-fill"></div>
+
+            </div>
+
+            <button
+                type="submit"
+                id="submit-btn">
+
+                Validate
+
+            </button>
+
+        </form>
 
     </div>
 
     <script src="script.js"></script>
 
 </body>
+
 </html>
