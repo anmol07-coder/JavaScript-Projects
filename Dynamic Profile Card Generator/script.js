@@ -1,50 +1,92 @@
-let name = document.querySelector("#name");
-let profession = document.querySelector("#profession");
-let bio = document.querySelector("#bio");
-let photo = document.querySelector("#photo");
-let submit =  document.querySelector("#submit-btn");
-let cardsContainer = document.querySelector(".cards-container");
+let form = document.querySelector("#user-form");
+let userImage = document.querySelector("#photo");
+let userName = document.querySelector("#name");
+let userProfession = document.querySelector("#profession");
+let userAge = document.querySelector("#age");
+let userLocation = document.querySelector("#location");
+let userEmail = document.querySelector("#email");
+let userLinkedin = document.querySelector("#linkedin");
+let userGithub = document.querySelector("#github");
+let userSkills = document.querySelector("#skills");
+let userBio = document.querySelector("#bio");
+let submit = document.querySelector("#submit-btn");
+let outerDiv = document.querySelector(".cards-container");
 
-submit.addEventListener("click", function(e){
+form.addEventListener("submit" , function(e){
     e.preventDefault();
 
 
-    if(name.value == "" || profession.value == "" || bio.value == "" || photo.value == ""){
-        alert("Submit all information ");
+    if(userImage.value.trim() === "" || userName.value.trim() === "" || userProfession.value.trim() === "" || userAge.value.trim() === "" || userLocation.value.trim() === "" || userEmail.value.trim() === "" || userLinkedin.value.trim() === "" || userGithub.value.trim() === "" || userSkills.value.trim() === "" || userBio.value.trim() === ""){
+        alert("Please complete all the details ");
+        return;
     }
+
+    let card = document.createElement("div");
+    card.classList.add("card");
+
+    if(document.querySelector(".empty-state")){
+        document.querySelector(".empty-state").remove();
+    }
+
+    let imageDiv = document.createElement("div");
+    imageDiv.classList.add("img-wrapper");
+
+    let image = document.createElement("img");
+    image.setAttribute("src" , userImage.value);
+    image.setAttribute("alt" , "Profile Picture");
+    imageDiv.appendChild(image);
+
+    let name = document.createElement("h2");
+    name.textContent = `Name : ${userName.value}`;
+
+    let profession = document.createElement("h3");
+    profession.textContent = `Profession : ${userProfession.value}`;
+
+    let age = document.createElement("h3");
+    age.textContent = `Age : ${userAge.value}`;
+
+    let finalLocation = document.createElement("h4");
+    finalLocation.textContent = `Location : ${userLocation.value}`;
+
+    let email = document.createElement("h4");
+    email.textContent = `Email : ${userEmail.value}`;
+
+    let linkedinDiv = document.createElement("div");
+    let linkedin = document.createElement("a");
+    linkedin.setAttribute("href" , userLinkedin.value);
+    linkedin.textContent = "LinkedIn";
+    linkedin.target = "_blank";
+    linkedin.rel = "noopener noreferrer";
+    linkedinDiv.appendChild(linkedin);
+
+    let githubDiv = document.createElement("div");
+    let github = document.createElement("a");
+    github.setAttribute("href" , userGithub.value);
+    github.textContent = "Github";
+    github.target = "_blank";
+    github.rel = "noopener noreferrer";
+    githubDiv.appendChild(github);
+
+
+    let ul = document.createElement("ul");
+    ul.textContent = `SKILLS : `;
     
 
-   else{
-        let outerDiv = document.createElement("div");
-        outerDiv.classList.add("card");
+    let skillsArr = userSkills.value.split(",");
+    skillsArr.forEach(function(val){
+        let li = document.createElement("li");
+        li.classList.add("skill");
+        li.textContent = val.trim();
+        ul.appendChild(li);
+    })
 
-        let innerDiv = document.createElement("div");
-        innerDiv.classList.add("img-wrapper");
 
-        let image = document.createElement("img");
-        image.setAttribute("src" , photo.value);
-        image.setAttribute("alt" , "Profile photo");
+    let bio = document.createElement("p");
+    bio.textContent = `Bio : ${userBio.value}`
 
-        let h2 = document.createElement("h2");
-        h2.textContent = name.value;
+    card.append(imageDiv , name , profession , age , finalLocation , email , linkedinDiv , githubDiv , ul , bio);
 
-        let h4 = document.createElement("h4");
-        h4.textContent = profession.value;
+    outerDiv.append(card);
 
-        let p = document.createElement("p");
-        p.textContent = bio.value;
-
-        innerDiv.appendChild(image);
-        outerDiv.appendChild(innerDiv);
-        outerDiv.appendChild(h2);
-        outerDiv.appendChild(h4);
-        outerDiv.appendChild(p);
-
-        cardsContainer.appendChild(outerDiv);
-
-        name.value = "";
-        profession.value = "";
-        bio.value = "";
-        photo.value = "";
-   }
+    form.reset();
 })
