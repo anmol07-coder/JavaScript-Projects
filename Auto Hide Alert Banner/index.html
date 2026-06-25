@@ -1,18 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>Auto Hide Alert Banner</title>
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="style.css">
+
 </head>
+
 <body>
 
-    <div class="alert-banner" id="alert">
-        ✅ Profile Updated Successfully
+    <button id="show-alert">
+        Show Notification
+    </button>
+
+    <div class="notification" id="notification">
+
+        <div class="icon">
+            ✓
+        </div>
+
+        <div class="content">
+
+            <h3>Success</h3>
+
+            <p>
+                Your profile has been updated successfully.
+            </p>
+
+        </div>
+
+        <span class="close">&times;</span>
+
     </div>
 
     <script src="script.js"></script>
 
 </body>
+
 </html>

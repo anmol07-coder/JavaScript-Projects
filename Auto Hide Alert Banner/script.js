@@ -1,5 +1,15 @@
-let div = document.querySelector("#alert");
+let button = document.querySelector("#show-alert");
+let notification = document.querySelector("#notification");
+let closeBtn = document.querySelector(".close");
 
-setTimeout(function(){
-    div.style.opacity = "0";
-},3000);
+button.addEventListener("click" , function(){
+    notification.classList.add("show");
+
+    setTimeout(function(){
+        notification.classList.remove("show");
+    },3000)
+})
+
+closeBtn.addEventListener("click" , function(){
+    notification.classList.remove("show");
+})
