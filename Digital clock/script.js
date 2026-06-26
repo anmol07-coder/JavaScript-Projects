@@ -1,25 +1,29 @@
-// Create a digital clock that:
+let hours = document.querySelector("#hours");
+let minutes = document.querySelector("#minutes");
+let seconds = document.querySelector("#seconds");
+let lastPart = document.querySelector("#ampm");
+let date = document.querySelector("#date");
 
-// Displays current time
-// Updates every second
-// Shows time in HH:MM:SS format
-// Displays AM/PM
+let months = ["January" , "February" , "March" , "April" , "May" , "June" , "July" , "August" , "September" , "October" , "November" , "December"];
 
+let days = ["Sunday" , "Monday" , "Tuesday" , "Wednesday" , "Thursday" , "Friday" , "Saturday" ];
 
-let clock = document.querySelector("#clock");
+function updateClock(){
+    let currTime = new Date();
 
-setInterval(function(){
-    let currentTime = new Date();
+    let currHour = currTime.getHours();
+    let currMinute = currTime.getMinutes();
+    let currSecond = currTime.getSeconds();
+    let currDate = currTime.getDate();
+    let currMonth = currTime.getMonth();
+    let currYear = currTime.getFullYear();
+    let currDay = currTime.getDay();
 
-    let currHour = currentTime.getHours();
-    let currMin = currentTime.getMinutes();
-    let currSec = currentTime.getSeconds();
+    let ampmPart = "AM";
 
-    let lastPart = "AM";
-
-    if(currHour >= 12){
-        lastPart = "PM";
-        currHour = currHour - 12;
+    if(currHour > 12){
+        ampmPart = "PM";
+        currHour = currHour-12;
     }
 
     if(currHour === 0){
@@ -27,17 +31,27 @@ setInterval(function(){
     }
 
     if(currHour < 10){
-        currHour = "0" + currHour;
+        currHour = `0${currHour}`;
     }
 
-    if(currMin < 10){
-        currMin = "0" + currMin;
+    if(currMinute < 10){
+        currMinute = `0${currMinute}`;
     }
 
-    if(currSec < 10){
-        currSec = "0" + currSec;
+    if(currSecond < 10){
+        currSecond = `0${currSecond}`;
     }
 
-    clock.textContent = `${currHour}:${currMin}:${currSec} ${lastPart}`;
+    if(currDate < 10){
+        currDate = `0${currDate}`;
+    }
 
-},1000);
+    hours.textContent = currHour;
+    minutes.textContent = currMinute;
+    seconds.textContent = currSecond;
+    lastPart.textContent = ampmPart;
+    date.textContent = `${days[currDay]}, ${currDate} ${months[currMonth]} ${currYear}`;
+}
+
+updateClock();
+setInterval(updateClock, 1000);

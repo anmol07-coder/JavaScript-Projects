@@ -1,21 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>Digital Clock</title>
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="style.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap"
+          rel="stylesheet">
+
 </head>
+
 <body>
 
-    <div class="container">
+    <div class="clock-container">
+
         <h1>Digital Clock</h1>
 
-        <div class="clock-container">
-            <span id="clock">00:00:00</span>
+        <p class="subtitle">
+            Live Time Updates Every Second
+        </p>
+
+        <div class="clock">
+
+            <div class="time-box">
+
+                <span id="hours">
+                    00
+                </span>
+
+                <small>Hours</small>
+
+            </div>
+
+            <div class="separator">
+                :
+            </div>
+
+            <div class="time-box">
+
+                <span id="minutes">
+                    00
+                </span>
+
+                <small>Minutes</small>
+
+            </div>
+
+            <div class="separator">
+                :
+            </div>
+
+            <div class="time-box">
+
+                <span id="seconds">
+                    00
+                </span>
+
+                <small>Seconds</small>
+
+            </div>
+
         </div>
+
+        <div class="extra">
+
+            <span id="ampm">
+                AM
+            </span>
+
+            <span id="date">
+                Monday, 01 January 2026
+            </span>
+
+        </div>
+
     </div>
 
     <script src="script.js"></script>
+
 </body>
+
 </html>
