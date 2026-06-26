@@ -1,50 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern To-Do List</title>
-    <link rel="stylesheet" href="style.css">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Todo List App</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
+
 <body>
 
-    <div class="container">
+    <div class="todo-container">
 
-        <h1>✨ To-Do List</h1>
+        <h1>My Todo List</h1>
 
-        <div class="input-section">
+        <p class="subtitle">
+            Stay organized. Stay productive.
+        </p>
+
+        <form id="todo-form">
+
             <input
                 type="text"
-                id="taskInput"
-                placeholder="Enter a task..."
-            >
+                id="task-input"
+                placeholder="Enter a new task..."
+                autocomplete="off">
 
-            <button id="addTaskBtn">
-                Add Task
+            <button id="add-btn">
+
+                <i class="fa-solid fa-plus"></i>
+
+                Add
+
             </button>
-        </div>
 
-        <ul id="taskList">
+        </form>
 
-            <!-- Example Task Structure
+        <ul id="task-list">
 
-            <li class="task">
-                <span class="task-text">
-                    Learn JavaScript
-                </span>
+            <li class="empty" id="empty">
 
-                <div class="actions">
-                    <button class="complete-btn">
-                        ✓
-                    </button>
+                No tasks yet. Add your first task!
 
-                    <button class="delete-btn">
-                        🗑
-                    </button>
-                </div>
             </li>
-
-            -->
 
         </ul>
 
@@ -53,4 +71,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>

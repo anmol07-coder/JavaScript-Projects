@@ -1,49 +1,56 @@
-// To-Do List App - Notes
-// Objective
+let todoContainer = document.querySelector(".todo-container");
+let inputTask = document.querySelector("#task-input");
+let form = document.querySelector("#todo-form");
+let button = document.querySelector("#add-btn");
+let taskList = document.querySelector("#task-list");
 
-// Create a To-Do List application that allows users to:
+form.addEventListener("submit" , function(e){
+    e.preventDefault();
 
-// Add tasks
-// Delete tasks
-// Mark tasks as completed
+    if(inputTask.value.trim() === ""){
+        alert("Please write some task ");
+        inputTask.value = "";
+        return;
+    }
+
+    let li = document.createElement("li");
+    let span = document.createElement("span");
+
+    span.classList.add("task-text");
+    span.textContent = inputTask.value.trim();
+    
+    let deleteIcon = document.createElement("i");
+    deleteIcon.classList.add("fa-solid", "fa-trash");
+
+    let dltButton = document.createElement("button");
+    dltButton.classList.add("delete-btn");
+    dltButton.appendChild(deleteIcon); 
+
+    li.appendChild(span);
+    li.appendChild(dltButton);
 
 
-let taskInput = document.querySelector("#taskInput");
-let btn = document.querySelector("#addTaskBtn");
-let taskList = document.querySelector("#taskList");
-
-function createTask(){
-    let task= document.createElement("li");
-    task.innerHTML = `<span>${taskInput.value}</span>`;
-    return task;
-}
-
-function addTask(task){
-    taskList.appendChild(task);
-}
-
-function deleteButton(){
-    let dltBtn = document.createElement("button");
-    dltBtn.textContent = `❌`;
-    return dltBtn;
-}
-
-btn.addEventListener("click" , function(){
-    let task = createTask();
-    addTask(task);
-
-    let dltBtn = deleteButton();
-    task.appendChild(dltBtn);
-    dltBtn.addEventListener("click" , function(){
-        task.remove();
+    span.addEventListener("click" , function(){
+        span.classList.toggle("completed");
     })
 
-    task.classList.add("task");
+    dltButton.addEventListener("click" , function(){
+        li.remove();
 
-    task.addEventListener("click" , function(){
-        task.classList.toggle("completed");
+        if(taskList.children.length === 0){
+            let empty = document.createElement("li");
+            empty.classList.add("empty");
+            empty.textContent = "No tasks yet. Add your first task!";
+            taskList.appendChild(empty);
+        }
     })
 
-    taskInput.value = "";
+    let empty = document.querySelector(".empty");
+    if(empty){
+    taskList.removeChild(empty);
+    }
+    taskList.appendChild(li);
+
+    inputTask.value = "";
 })
 
