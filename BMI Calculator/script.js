@@ -1,62 +1,83 @@
-// Create a BMI Calculator that:
-
-// Takes height and weight as input
-// Calculates BMI
-// Displays BMI value
-// Displays BMI category
-// Changes category color dynamically
-
-
-
 let height = document.querySelector("#height");
 let weight = document.querySelector("#weight");
-let calculateBtn = document.querySelector("#calculateBtn");
-let bmiValue = document.querySelector("#bmiValue");
-let category = document.querySelector("#category");
+let calculateBtn = document.querySelector("#calculate-btn");
+let bmiValue = document.querySelector("#bmi-value");
+let bmiStatus = document.querySelector("#bmi-status");
+let message = document.querySelector("#message");
+
 let finalHeight;
 let finalWeight;
-let bodyCategory;
-let finalBmi;
 let bmi;
+let finalBmi;
 
-function findCategory(){
-    if(finalBmi <= 18.5){
-        category.textContent = `Underweight`;
-        category.style.color = "lightblue";
+function getCategory(bmi){
+
+    if(bmi < 18.5){
+        return "Underweight";
     }
 
-    else if(finalBmi > 18.5 && finalBmi <= 24.9){
-        category.textContent = `Normal Weight`;
-        category.style.color = "green";
+    else if(bmi >= 18.5 && bmi < 25){
+        return "Healthy";
     }
 
-    else if(finalBmi > 24.9 && finalBmi <= 29){
-        category.textContent = `Overweight`;
-        category.style.color = "orange";
+    else if(bmi >= 25 && bmi < 30){
+        return "Overweight";
     }
 
     else{
-        category.textContent = `Obese`;
-        category.style.color = "red";
+        return "Obese";
     }
+
 }
 
-height.addEventListener("input" , function(e){
-    finalHeight = height.value / 100;
+height.addEventListener("input", function(){
+    finalHeight = Number(height.value) / 100;
 });
 
-weight.addEventListener("input" , function(e){
-    finalWeight = weight.value;
+weight.addEventListener("input", function(){
+    finalWeight = Number(weight.value);
 });
 
+calculateBtn.addEventListener("click", function(e){
 
-calculateBtn.addEventListener("click" , function(){
-    bmi = finalWeight / (finalHeight*finalHeight);
-    finalBmi = bmi.toFixed(2);
+    e.preventDefault();
+
+    if(height.value.trim() === "" || weight.value.trim() === ""){
+        alert("Please enter height and weight.");
+        return;
+    }
+
+    if(finalHeight <= 0 || finalWeight <= 0){
+        alert("Please enter valid values.");
+        return;
+    }
+
+    bmi = finalWeight / (finalHeight * finalHeight);
+
+    finalBmi = bmi.toFixed(1);
+
     bmiValue.textContent = finalBmi;
-    findCategory();
+    let category = getCategory(bmi)
+    bmiStatus.textContent = category;
+
+    if(category === "Underweight"){
+        message.textContent = "You should gain some healthy weight.";
+    }
+    else if(category === "Healthy"){
+        message.textContent = "Great! Your BMI is in the healthy range.";
+    }
+    else if(category === "Overweight"){
+        message.textContent = "Try maintaining a balanced diet and exercise.";
+    }
+    else{
+        message.textContent = "Consult a healthcare professional for guidance.";
+    }
+
     height.value = "";
     weight.value = "";
 
-})
+    finalHeight = 0;
+    finalWeight = 0;
 
+
+});
