@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Call Manager</title>
+
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= Overlay ================= -->
+
+    <div class="overlay"></div>
+
+    <!-- ================= Form Popup ================= -->
+
+    <section class="form-popup">
+
+        <div class="form-header">
+            <h2>Create New Call</h2>
+
+            <button class="close-form">
+                <i class="ri-close-line"></i>
+            </button>
+        </div>
+
+        <form id="callForm">
+
+            <!-- Image -->
+
+            <div class="input-group">
+
+                <label>Profile Image URL</label>
+
+                <input
+                    type="text"
+                    id="image"
+                    placeholder="https://example.com/photo.jpg"
+                    required>
+
+            </div>
+
+            <!-- Name -->
+
+            <div class="input-group">
+
+                <label>Full Name</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter full name"
+                    required>
+
+            </div>
+
+            <!-- Phone -->
+
+            <div class="input-group">
+
+                <label>Phone Number</label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="+91 9876543210"
+                    required>
+
+            </div>
+
+            <!-- Town -->
+
+            <div class="input-group">
+
+                <label>Home Town</label>
+
+                <input
+                    type="text"
+                    id="town"
+                    placeholder="Enter hometown"
+                    required>
+
+            </div>
+
+            <!-- Purpose -->
+
+            <div class="input-group">
+
+                <label>Purpose</label>
+
+                <textarea
+                    id="purpose"
+                    rows="3"
+                    placeholder="Purpose of the call..."
+                    required></textarea>
+
+            </div>
+
+            <!-- Priority -->
+
+            <div class="input-group">
+
+                <label>Priority</label>
+
+                <div class="priority-options">
+
+                    <label class="priority emergency">
+
+                        <input
+                            type="radio"
+                            name="priority"
+                            value="Emergency"
+                            required>
+
+                        <span>Emergency</span>
+
+                    </label>
+
+                    <label class="priority urgent">
+
+                        <input
+                            type="radio"
+                            name="priority"
+                            value="Urgent">
+
+                        <span>Urgent</span>
+
+                    </label>
+
+                    <label class="priority important">
+
+                        <input
+                            type="radio"
+                            name="priority"
+                            value="Important">
+
+                        <span>Important</span>
+
+                    </label>
+
+                    <label class="priority norush">
+
+                        <input
+                            type="radio"
+                            name="priority"
+                            value="No Rush">
+
+                        <span>No Rush</span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+            <button class="create-btn">
+
+                <i class="ri-add-circle-line"></i>
+
+                Create Call
+
+            </button>
+
+        </form>
+
+    </section>
+
+    <!-- ================= Main App ================= -->
+
+    <main class="app">
+
+        <!-- Left Buttons -->
+
+        <aside class="controls">
+
+            <button id="addBtn">
+
+                <i class="ri-add-line"></i>
+
+            </button>
+
+            <button id="upBtn">
+
+                <i class="ri-arrow-up-line"></i>
+
+            </button>
+
+            <button id="downBtn">
+
+                <i class="ri-arrow-down-line"></i>
+
+            </button>
+
+        </aside>
+
+        <!-- Card Stack -->
+
+        <section class="card-area">
+
+            <div class="stack">
+                <div class="stack">
+
+    <!-- Card 3 -->
+
+    <div class="card important third">
+
+        <div class="priority-strip"></div>
+
+        <div class="card-top">
+
+            <img
+                class="avatar"
+                src="https://i.pravatar.cc/150?img=34"
+                alt="">
+
+            <div>
+
+                <h3 class="person-name">Rahul Verma</h3>
+
+                <p class="town">Noida</p>
+
+            </div>
+
+        </div>
+
+        <div class="purpose-box">
+
+            <h4>Purpose</h4>
+
+            <p class="purpose">
+
+                Follow up regarding MERN project collaboration and GitHub repository.
+
+            </p>
+
+        </div>
+
+        <div class="card-bottom">
+
+            <span class="badge">Important</span>
+
+            <small class="time">1 hour ago</small>
+
+        </div>
+
+        <div class="card-buttons">
+
+            <button class="call-btn">
+
+                <i class="ri-phone-fill"></i>
+
+                Call
+
+            </button>
+
+            <button class="message-btn">
+
+                <i class="ri-message-3-fill"></i>
+
+                Message
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+                <!-- Cards will be added here dynamically -->
+
+            </div>
+
+        </section>
+
+        <!-- Priority Legend -->
+
+        <aside class="legend">
+
+            <div class="legend-item">
+
+                <span class="legend-dot emergency"></span>
+
+                <p>Emergency</p>
+
+            </div>
+
+            <div class="legend-item">
+
+                <span class="legend-dot urgent"></span>
+
+                <p>Urgent</p>
+
+            </div>
+
+            <div class="legend-item">
+
+                <span class="legend-dot important"></span>
+
+                <p>Important</p>
+
+            </div>
+
+            <div class="legend-item">
+
+                <span class="legend-dot norush"></span>
+
+                <p>No Rush</p>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+    <!-- ================= Card Template ================= -->
+
+    <template id="cardTemplate">
+
+        <div class="card">
+
+            <div class="priority-strip"></div>
+
+            <div class="card-top">
+
+                <img
+                    class="avatar"
+                    src=""
+                    alt="Profile">
+
+                <div>
+
+                    <h3 class="person-name"></h3>
+
+                    <p class="town"></p>
+
+                </div>
+
+            </div>
+
+            <div class="purpose-box">
+
+                <h4>Purpose</h4>
+
+                <p class="purpose"></p>
+
+            </div>
+
+            <div class="card-bottom">
+
+                <span class="badge"></span>
+
+                <small class="time"></small>
+
+            </div>
+
+            <div class="card-buttons">
+
+                <button class="call-btn">
+
+                    <i class="ri-phone-fill"></i>
+
+                    Call
+
+                </button>
+
+                <button class="message-btn">
+
+                    <i class="ri-message-3-fill"></i>
+
+                    Message
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </template>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
