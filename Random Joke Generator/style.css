@@ -1,0 +1,207 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:
+    linear-gradient(135deg,#0f172a,#1e293b,#111827);
+
+    padding:20px;
+
+}
+
+.container{
+
+    width:700px;
+
+    background:white;
+
+    border-radius:24px;
+
+    padding:45px;
+
+    text-align:center;
+
+    box-shadow:
+    0 20px 45px rgba(0,0,0,.25);
+
+}
+
+.emoji{
+
+    font-size:70px;
+
+    margin-bottom:15px;
+
+}
+
+h1{
+
+    color:#111827;
+
+    font-size:36px;
+
+    margin-bottom:12px;
+
+}
+
+.subtitle{
+
+    color:#6b7280;
+
+    margin-bottom:35px;
+
+    font-size:18px;
+
+    line-height:1.6;
+
+}
+
+#generate-btn{
+
+    border:none;
+
+    outline:none;
+
+    cursor:pointer;
+
+    padding:16px 34px;
+
+    border-radius:50px;
+
+    background:
+    linear-gradient(135deg,#2563eb,#06b6d4);
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    transition:.3s;
+
+}
+
+#generate-btn:hover{
+
+    transform:
+    translateY(-4px);
+
+    box-shadow:
+    0 12px 25px rgba(37,99,235,.35);
+
+}
+
+.joke-card{
+
+    margin-top:40px;
+
+    background:#f8fafc;
+
+    border:2px dashed #cbd5e1;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    min-height:200px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+}
+
+#setup{
+
+    color:#111827;
+
+    font-size:28px;
+
+    line-height:1.5;
+
+    margin-bottom:18px;
+
+}
+
+#punchline{
+
+    color:#2563eb;
+
+    font-size:22px;
+
+    font-weight:600;
+
+    line-height:1.6;
+
+}
+
+#status{
+
+    margin-top:28px;
+
+    color:#ef4444;
+
+    font-size:17px;
+
+    font-weight:600;
+
+}
+
+@media(max-width:768px){
+
+    .container{
+
+        width:100%;
+
+        padding:28px;
+
+    }
+
+    h1{
+
+        font-size:30px;
+
+    }
+
+    #setup{
+
+        font-size:22px;
+
+    }
+
+    #punchline{
+
+        font-size:18px;
+
+    }
+
+    #generate-btn{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+}
