@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>
+            <i class="ri-cloud-fill"></i>
+            Weather App
+        </h1>
+
+        <p class="subtitle">
+            Search any city to get the current weather.
+        </p>
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="city"
+                placeholder="Enter city name">
+
+            <button id="search-btn">
+
+                <i class="ri-search-line"></i>
+
+                Search
+
+            </button>
+
+        </div>
+
+        <p id="status"></p>
+
+        <div class="weather-card">
+
+            <img
+                id="weather-icon"
+                src="https://cdn-icons-png.flaticon.com/512/1163/1163661.png"
+                alt="Weather Icon">
+
+            <h2 id="city-name">
+                City Name
+            </h2>
+
+            <p id="country">
+                Country
+            </p>
+
+            <h1 id="temperature">
+                0°C
+            </h1>
+
+            <p id="condition">
+                Sunny
+            </p>
+
+            <div class="weather-info">
+
+                <div class="info-box">
+
+                    <i class="ri-water-percent-line"></i>
+
+                    <h3 id="humidity">0%</h3>
+
+                    <span>Humidity</span>
+
+                </div>
+
+                <div class="info-box">
+
+                    <i class="ri-windy-line"></i>
+
+                    <h3 id="wind">0 km/h</h3>
+
+                    <span>Wind</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
