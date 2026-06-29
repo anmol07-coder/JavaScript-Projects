@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Generator</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>
+            <i class="ri-double-quotes-l"></i>
+            Quote Generator
+        </h1>
+
+        <p class="subtitle">
+            Generate inspirational quotes and save your favourites.
+        </p>
+
+        <div class="quote-card">
+
+            <p id="quote">
+                Click the button to generate a quote.
+            </p>
+
+            <h3 id="author">
+                — Unknown
+            </h3>
+
+            <div class="buttons">
+
+                <button id="generate-btn">
+                    <i class="ri-refresh-line"></i>
+                    Generate Quote
+                </button>
+
+                <button id="save-btn">
+                    <i class="ri-heart-fill"></i>
+                    Save
+                </button>
+
+            </div>
+
+            <p id="status"></p>
+
+        </div>
+
+        <div class="favorites">
+
+            <h2>
+                <i class="ri-bookmark-fill"></i>
+                Favourite Quotes
+            </h2>
+
+            <div id="favorites-list">
+
+                <!-- Favourite quote cards will come here -->
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
